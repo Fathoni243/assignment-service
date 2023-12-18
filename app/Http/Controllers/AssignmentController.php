@@ -10,20 +10,20 @@ use Illuminate\Support\Facades\Validator;
 
 class AssignmentController extends Controller
 {
-    const url = "http://localhost:8090/users";
+    const url = "http://localhost:6000/api/classes";
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $responseClient = Http::get(self::url)['data'];
+        $responseClient = Http::get(self::url)['data']['classes'];
         $assignments = Assignment::all()->load('assignmentPlan');
 
         $result = [];
 
         foreach ($assignments as $assignment) {
-            $courseId = $assignment->course_class_id;
+            $classesId = $assignment->course_class_id;
             
             $result[] = [
                 'id' => $assignment->id,
@@ -32,7 +32,7 @@ class AssignmentController extends Controller
                 'assigned_date' => $assignment->assigned_date,
                 'due_date' => $assignment->due_date,
                 'note' => $assignment->note,
-                'course_class' => $responseClient[$courseId-1],
+                'course_class' => $responseClient[$classesId-1],
             ];
         }
 
@@ -49,7 +49,7 @@ class AssignmentController extends Controller
      */
     public function store(Request $request, Assignment $assignment)
     {
-        $responseClient = Http::get(self::url)['data'];
+        $responseClient = Http::get(self::url)['data']['classes'];
 
         $validator = Validator::make($request->all(), [
             'assignment_plan_id' => 'required|numeric',
@@ -103,11 +103,11 @@ class AssignmentController extends Controller
     public function show(int $id)
     {
         $assignment = Assignment::where('id', $id)->first();
-
+        
+        $responseClient = Http::get(self::url)['data']['classes'];
+        
         $classesId = $assignment->course_class_id;
-
-        $getCourse = Http::get(self::url."/$classesId")['data'];
-                
+            
         return response()->json([
             'status' => 'Success',
             'message' => 'a department successfully grabbed',
@@ -118,7 +118,7 @@ class AssignmentController extends Controller
                 'assigned_date' => $assignment->assigned_date,
                 'due_date' => $assignment->due_date,
                 'note' => $assignment->note,
-                'course_class' => $getCourse,
+                'course_class' => $responseClient[$classesId-1],
                 'assignment_plan' => $assignment->assignmentPlan
             ]
         ], 200);
@@ -129,7 +129,7 @@ class AssignmentController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $responseClient = Http::get(self::url)['data'];
+        $responseClient = Http::get(self::url)['data']['classes'];
 
         $validated = $request->validate([
             'assignment_plan_id' => 'required|numeric',
