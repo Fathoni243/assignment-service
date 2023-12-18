@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2600,
     "height": 2600,
-    "scrollTop": -941.5999999999946,
-    "scrollLeft": -479.19999999999976,
-    "zoomLevel": 0.6,
+    "scrollTop": -1223.1999999999944,
+    "scrollLeft": -504.80000000000007,
+    "zoomLevel": 1,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -2104,10 +2104,10 @@
           }
         ],
         "ui": {
-          "active": false,
-          "left": 845.3418,
-          "top": 1353.9305,
-          "zIndex": 12,
+          "active": true,
+          "left": 840.5418,
+          "top": 1354.7305,
+          "zIndex": 24,
           "widthName": 91.59716796875,
           "widthComment": 60,
           "color": "#009688"
@@ -3684,8 +3684,8 @@
           "columnIds": [
             "cd17117f-8df9-4f49-a0da-4e2168c273d8"
           ],
-          "x": 1254.1269562500001,
-          "y": 1480.6805,
+          "x": 1249.32695625,
+          "y": 1481.4805,
           "direction": "right"
         },
         "end": {
@@ -3745,8 +3745,8 @@
           "columnIds": [
             "73b93409-b958-4f00-a5e5-6cb560c6bd54"
           ],
-          "x": 1049.7343781250001,
-          "y": 1607.4305,
+          "x": 1044.934378125,
+          "y": 1608.2305,
           "direction": "bottom"
         },
         "constraintName": "fk_users_to_class",
@@ -3979,8 +3979,8 @@
           "columnIds": [
             "dae5714f-e158-445a-b176-2528ca65b778"
           ],
-          "x": 845.3418,
-          "y": 1417.3055,
+          "x": 840.5418,
+          "y": 1418.1055,
           "direction": "left"
         },
         "constraintName": "fk_course_to_class",
@@ -4291,8 +4291,8 @@
           "columnIds": [
             "9eb5d1a7-b02a-49b0-9d03-f83f9845ea0d"
           ],
-          "x": 845.3418,
-          "y": 1544.0555,
+          "x": 840.5418,
+          "y": 1544.8555,
           "direction": "left"
         },
         "constraintName": "fk_syllabi_to_course_classes",
@@ -4308,8 +4308,8 @@
           "columnIds": [
             "cd17117f-8df9-4f49-a0da-4e2168c273d8"
           ],
-          "x": 1049.7343781250001,
-          "y": 1353.9305,
+          "x": 1044.934378125,
+          "y": 1354.7305,
           "direction": "top"
         },
         "end": {
