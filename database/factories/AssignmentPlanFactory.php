@@ -20,7 +20,7 @@ class AssignmentPlanFactory extends Factory
     {
         return [
             'objective' => $this->faker->text,
-            'title' => $this->faker->text,
+            'title' => $this->faker->text(20),
             'is_group_assignment' => $this->faker->boolean,
             'assignment_style' => $this->faker->words(3, true),
             'description' => $this->faker->text,
